@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 project(Olymp CXX)
 enable_testing()
+add_compile_options(-Wall -Wextra -Wpedantic -std=c++14)
 include_directories(include)
 add_subdirectory(tests)
