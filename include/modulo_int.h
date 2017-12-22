@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream>
+#include <iosfwd>
 #include <limits>
 #include <type_traits>
 
