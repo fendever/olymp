@@ -1,6 +1,6 @@
+#include <gtest/gtest.h>
 #include <iostream>
 #include <modulo_int.h>
-#include <gtest/gtest.h>
 
 namespace olymp {
 
