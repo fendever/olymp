@@ -6,5 +6,7 @@ include_directories(include)
 
 if (${WITH_TESTS} STREQUAL "ON") 
     enable_testing()
+    find_package(GTest REQUIRED)
+    include_directories(${GTEST_INCLUDE_DIRS})
     add_subdirectory(tests)
 endif()
