@@ -93,94 +93,46 @@ private:
 
 void Chessboard::print(std::ostream& s) const {
     int r;
+    auto print_piece = [&s, this](int r, int c) {
+        switch (get(r, c)) {
+        case WhiteKing:
+            return "♔";
+        case WhiteQueen:
+            return "♕";
+        case WhiteRook:
+            return "♖";
+        case WhiteBishop:
+            return "♗";
+        case WhiteKnight:
+            return "♘";
+        case WhitePawn:
+            return "♙";
+        case BlackKing:
+            return "♚";
+        case BlackQueen:
+            return "♛";
+        case BlackRook:
+            return "♜";
+        case BlackBishop:
+            return "♝";
+        case BlackKnight:
+            return "♞";
+        case BlackPawn:
+            return "♟";
+        case Nothing:
+            return ((r + c) % 2 == 0 ? "□" : "■");
+        default:
+            throw std::invalid_argument("");
+        }
+    };
     for (r = 0; r < N - 1; ++r) {
         for (int c = 0; c < N; ++c) {
-            switch (get(r, c)) {
-            case WhiteKing:
-                s << "♔";
-                break;
-            case WhiteQueen:
-                s << "♕";
-                break;
-            case WhiteRook:
-                s << "♖";
-                break;
-            case WhiteBishop:
-                s << "♗";
-                break;
-            case WhiteKnight:
-                s << "♘";
-                break;
-            case WhitePawn:
-                s << "♙";
-                break;
-            case BlackKing:
-                s << "♚";
-                break;
-            case BlackQueen:
-                s << "♛";
-                break;
-            case BlackRook:
-                s << "♜";
-                break;
-            case BlackBishop:
-                s << "♝";
-                break;
-            case BlackKnight:
-                s << "♞";
-                break;
-            case BlackPawn:
-                s << "♟";
-                break;
-            case Nothing:
-                s << ((r + c) % 2 == 0 ? "□" : "■");
-                break;
-            }
+            s << print_piece(r, c);
         }
         s << '\n';
     }
     for (int c = 0; c < N; ++c) {
-        switch (get(r, c)) {
-        case WhiteKing:
-            s << "♔";
-            break;
-        case WhiteQueen:
-            s << "♕";
-            break;
-        case WhiteRook:
-            s << "♖";
-            break;
-        case WhiteBishop:
-            s << "♗";
-            break;
-        case WhiteKnight:
-            s << "♘";
-            break;
-        case WhitePawn:
-            s << "♙";
-            break;
-        case BlackKing:
-            s << "♚";
-            break;
-        case BlackQueen:
-            s << "♛";
-            break;
-        case BlackRook:
-            s << "♜";
-            break;
-        case BlackBishop:
-            s << "♝";
-            break;
-        case BlackKnight:
-            s << "♞";
-            break;
-        case BlackPawn:
-            s << "♟";
-            break;
-        case Nothing:
-            s << ((r + c) % 2 == 0 ? "□" : "■");
-            break;
-        }
+        s << print_piece(r, c);
     }
 }
 
