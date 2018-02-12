@@ -36,6 +36,36 @@ public:
         WhiteKing = King,
     };
 
+    const char* to_char(Chessboard::Piece piece) {
+        switch (piece) {
+        case WhiteKing:
+            return "♔";
+        case WhiteQueen:
+            return "♕";
+        case WhiteRook:
+            return "♖";
+        case WhiteBishop:
+            return "♗";
+        case WhiteKnight:
+            return "♘";
+        case WhitePawn:
+            return "♙";
+        case BlackKing:
+            return "♚";
+        case BlackQueen:
+            return "♛";
+        case BlackRook:
+            return "♜";
+        case BlackBishop:
+            return "♝";
+        case BlackKnight:
+            return "♞";
+        case BlackPawn:
+            return "♟";
+        }
+    }
+
+
     Piece &get(int r, int c)
     {
         return chessboard[r * N + c];
